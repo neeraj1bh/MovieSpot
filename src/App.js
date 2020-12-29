@@ -1,4 +1,3 @@
-import logo from "./logo.svg";
 import { GlobalStyle } from "./GlobalStyle";
 import Header from "./components/Header";
 import Home from "./components/Home";
