@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { POSTER_SIZE, BACKDROP_SIZE, IMAGE_BASE_URL } from "../config";
+import NoImage from "../images/logo.svg";
 import { useHomeFetch } from "../hooks/useHomeFetch";
 import HeroImage from "./Hero";
+import MovieGrid from "./MovieGrid";
+import MovieThumb from "./MovieThumb";
 
 const Home = () => {
   const { state, loading, error } = useHomeFetch();
@@ -16,6 +19,20 @@ const Home = () => {
           text={state.results[0].overview}
         />
       ) : null}
+      <MovieGrid header="Trending Movies">
+        {state.results.map((movie) => (
+          <MovieThumb
+            key={movie.id}
+            image={
+              movie.poster_path
+                ? `${IMAGE_BASE_URL}${POSTER_SIZE}${movie.poster_path}`
+                : NoImage
+            }
+            clickable={true}
+            movieId={movie.id}
+          />
+        ))}
+      </MovieGrid>
     </>
   );
 };
