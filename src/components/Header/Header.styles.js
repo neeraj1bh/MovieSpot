@@ -14,4 +14,26 @@ export const Content = styled.div`
 
 export const Logo = styled.img`
   width: 70px;
+  animation: spin 5s linear infinite;
+
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+`;
+
+export const Text = styled.div`
+  color: var(--white);
+
+  h1 {
+    font-size: var(--fontBig);
+
+    @media screen and (max-width: 720px) {
+      font-size: var(--fontMed);
+    }
+  }
 `;

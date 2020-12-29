@@ -8,6 +8,7 @@ function App() {
       <Header />
       <Home />
       <GlobalStyle />
+
     </div>
   );
 }

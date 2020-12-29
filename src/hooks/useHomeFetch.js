@@ -11,6 +11,7 @@ export const useHomeFetch = () => {
   const [state, setState] = useState(initialState);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
+  const [searchTerm, setSearchTerm] = useState("");
 
   const fetchMovies = async (page, searchTerm = "") => {
     try {
@@ -28,7 +29,8 @@ export const useHomeFetch = () => {
     setLoading(false);
   };
   useEffect(() => {
-    fetchMovies(1);
-  }, []);
-  return { state, loading, error };
+    setState(initialState);
+    fetchMovies(1, searchTerm);
+  }, [searchTerm]);
+  return { state, loading, error, searchTerm, setSearchTerm };
 };
