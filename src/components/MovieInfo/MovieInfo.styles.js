@@ -9,11 +9,11 @@ export const Wrapper = styled.div`
   padding: 40px 20px;
   animation: animateMovieInfo 1s;
 
-  @keyframes animateMovieInfo {
-    0% {
+  @keyframes {
+    from {
       opacity: 0;
     }
-    100% {
+    to {
       opacity: 1;
     }
   }
@@ -22,11 +22,11 @@ export const Wrapper = styled.div`
 export const Content = styled.div`
   display: flex;
   max-width: var(--maxWidth);
-  margin: auto;
+  margin: 0 auto;
   background: rgba(0, 0, 0, 0.7);
   border-radius: 20px;
 
-  @media screen and(max-width: 768px) {
+  @media screen and (max-width: 768px) {
     display: block;
     max-height: none;
   }
@@ -55,14 +55,17 @@ export const Text = styled.div`
     border-radius: 50%;
     margin: 0;
   }
+
   .director {
     margin: 0 0 0 40px;
+
     p {
       margin: 0;
     }
   }
+
   h1 {
-    @media screen and(max-width : 768px) {
+    @media screen and (max-width: 768px) {
       font-size: var(--fontBig);
     }
   }

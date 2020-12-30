@@ -7,6 +7,7 @@ import NoImage from "../images/logo.svg";
 import { useMovieFetch } from "../hooks/useMovieFetch";
 import BreadCrumb from "./BreadCrumb";
 import MovieInfo from "./MovieInfo";
+import MovieInfoBar from "./MovieInfoBar";
 
 const Movie = () => {
   const { movieId } = useParams();
@@ -19,6 +20,11 @@ const Movie = () => {
     <>
       <BreadCrumb movieTitle={movie.original_title} />
       <MovieInfo movie={movie} />
+      <MovieInfoBar
+        time={movie.runtime}
+        budget={movie.budget}
+        revenue={movie.revenue}
+      />
     </>
   );
 };
