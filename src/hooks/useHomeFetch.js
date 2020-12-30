@@ -12,6 +12,7 @@ export const useHomeFetch = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
+  const [isLoadingMore, setIsLoadingMore] = useState(false);
 
   const fetchMovies = async (page, searchTerm = "") => {
     try {
@@ -32,5 +33,12 @@ export const useHomeFetch = () => {
     setState(initialState);
     fetchMovies(1, searchTerm);
   }, [searchTerm]);
-  return { state, loading, error, searchTerm, setSearchTerm };
+
+  useEffect(() => {
+    if (!isLoadingMore) return;
+    //if (isLoadingMore) return; Auto calls the page increments no need to click the button
+    fetchMovies(state.page + 1, searchTerm);
+    setIsLoadingMore(false);
+  }, [isLoadingMore, state.page, searchTerm]);
+  return { state, loading, error, searchTerm, setSearchTerm, setIsLoadingMore };
 };
