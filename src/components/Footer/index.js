@@ -26,6 +26,7 @@ const Header = () => (
       <a
         href="https://themoviedb.org/"
         target="blank"
+        rel="noopener noreferrer"
         style={{ textDecoration: "none" }}
       >
         <Content1>
