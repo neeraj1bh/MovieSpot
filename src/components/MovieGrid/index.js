@@ -1,5 +1,6 @@
 import React from "react";
 import { Wrapper, Content } from "./MovieGrid.styles";
+import PropTypes from "prop-types";
 
 const MovieGrid = ({ header, children }) => (
   <Wrapper>
@@ -8,4 +9,7 @@ const MovieGrid = ({ header, children }) => (
   </Wrapper>
 );
 
+MovieGrid.propTypes = {
+  header: PropTypes.string,
+};
 export default MovieGrid;
