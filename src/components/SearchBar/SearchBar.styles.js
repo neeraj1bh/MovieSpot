@@ -22,7 +22,7 @@ export const Content = styled.div`
     position: absolute;
     left: 15px;
     top: 14px;
-    width: 30px;
+    width: 45px;
   }
 
   input {
@@ -33,6 +33,7 @@ export const Content = styled.div`
     padding: 0 0 0 60px;
     border: 0;
     width: 95%;
+    text-align: center;
     background: transparent;
     height: 40px;
     color: var(--white);

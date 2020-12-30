@@ -19,7 +19,7 @@ const Header = () => (
         <Content1>
           <Logo1 src={NBlogo} alt="app-logo" />
           <Text>
-            <h1>MovieDB</h1>
+            <h1>MovieSpot</h1>
           </Text>
         </Content1>
       </Link>

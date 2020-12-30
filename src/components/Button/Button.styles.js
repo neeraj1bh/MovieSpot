@@ -3,14 +3,13 @@ import styled from "styled-components";
 export const Wrapper = styled.button`
   display: block;
   background: var(--darkGrey);
-  width: 25%;
+  width: 20%;
   min-width: 200px;
-  height: 60px;
-  border-radius: 30px;
+  height: 70px;
   color: var(--white);
   border: 0;
   font-size: var(--fontBig);
-  margin: 20px auto;
+  margin: 30px auto;
   transition: all 0.5s;
   outline: none;
   cursor: pointer;
