@@ -3,12 +3,13 @@ import { IMAGE_BASE_URL, POSTER_SIZE } from "../config";
 import { useParams } from "react-router-dom";
 import MovieGrid from "./MovieGrid";
 import Spinner from "./Spinner";
-import NoImage from "../images/logo.svg";
+import NoImage from "../images/noImage.png";
 import { useMovieFetch } from "../hooks/useMovieFetch";
 import BreadCrumb from "./BreadCrumb";
 import MovieInfo from "./MovieInfo";
 import MovieInfoBar from "./MovieInfoBar";
 import Actor from "./Actor";
+import Footer from "./Footer";
 
 const Movie = () => {
   const { movieId } = useParams();
@@ -40,6 +41,7 @@ const Movie = () => {
           />
         ))}
       </MovieGrid>
+      {!loading && <Footer />}
     </>
   );
 };

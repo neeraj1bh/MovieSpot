@@ -1,7 +1,7 @@
 import React from "react";
 import MovieThumb from "../MovieThumb";
 import { IMAGE_BASE_URL, POSTER_SIZE } from "../../config";
-import NoImage from "../../images/logo.svg";
+import NoImage from "../../images/noImage.png";
 import { Wrapper, Content, Text } from "./MovieInfo.styles";
 import PropTypes from "prop-types";
 const MovieInfo = ({ movie }) => (

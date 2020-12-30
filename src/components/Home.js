@@ -1,6 +1,6 @@
 import React from "react";
 import { POSTER_SIZE, BACKDROP_SIZE, IMAGE_BASE_URL } from "../config";
-import NoImage from "../images/logo.svg";
+import NoImage from "../images/noImage.png";
 import { useHomeFetch } from "../hooks/useHomeFetch";
 import HeroImage from "./Hero";
 import MovieGrid from "./MovieGrid";
@@ -8,6 +8,8 @@ import MovieThumb from "./MovieThumb";
 import Spinner from "./Spinner";
 import SearchBar from "./SearchBar";
 import Button from "./Button";
+import Error from "./Error";
+import Footer from "./Footer";
 
 const Home = () => {
   const {
@@ -20,7 +22,7 @@ const Home = () => {
   } = useHomeFetch();
   //   console.log(state);
 
-  if (error) return <div>Something went wrong...</div>;
+  if (error) return <Error />;
 
   return (
     <>
@@ -32,7 +34,15 @@ const Home = () => {
         />
       ) : null}
       <SearchBar setSearchTerm={setSearchTerm} />
-      <MovieGrid header={searchTerm ? "Search Results" : "Trending Movies"}>
+      <MovieGrid
+        header={
+          searchTerm
+            ? state.results.length > 0
+              ? "Search Results"
+              : null
+            : "Trending Movies"
+        }
+      >
         {state.results.map((movie) => (
           <MovieThumb
             key={movie.id}
@@ -50,6 +60,8 @@ const Home = () => {
       {state.page < state.total_pages && !loading && (
         <Button text="Load More" callback={() => setIsLoadingMore(true)} />
       )}
+      {state.results.length <= 0 && <Error />}
+      {!loading && state.results.length > 0 && <Footer />}
     </>
   );
 };

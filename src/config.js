@@ -6,7 +6,7 @@ const API_KEY = process.env.REACT_APP_API_KEY;
 const SEARCH_BASE_URL = `${API_URL}search/movie?api_key=${API_KEY}&language=en-US&query=`;
 const POPULAR_BASE_URL = `${API_URL}movie/popular?api_key=${API_KEY}&language=en-US`;
 
-const IMAGE_BASE_URL = "http://image.tmdb.org/t/p/";
+const IMAGE_BASE_URL = "https://image.tmdb.org/t/p/";
 
 const BACKDROP_SIZE = "w1280";
 

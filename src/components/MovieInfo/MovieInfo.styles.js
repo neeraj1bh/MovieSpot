@@ -8,13 +8,8 @@ export const Wrapper = styled.div`
   background-position: center;
   padding: 40px 20px;
   animation: animateMovieInfo 1s;
-  min-height: 100px;
-  height: auto;
-  display: flex;
-  align-items: center;
-  width: 100%;
 
-  @keyframes animateMovieInfo {
+  @keyframes {
     from {
       opacity: 0;
     }
@@ -27,7 +22,6 @@ export const Wrapper = styled.div`
 export const Content = styled.div`
   display: flex;
   max-width: var(--maxWidth);
-  max-height: 500px;
   margin: 0 auto;
   background: rgba(0, 0, 0, 0.7);
   border-radius: 20px;
@@ -36,7 +30,6 @@ export const Content = styled.div`
     display: block;
     max-height: none;
   }
-
 `;
 
 export const Text = styled.div`
