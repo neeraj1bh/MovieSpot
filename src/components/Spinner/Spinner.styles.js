@@ -1,6 +1,13 @@
 import styled from "styled-components";
 
-export const Spinner = styled.div`
+export const Wrapper = styled.div`
+  display: flex;
+  min-height: 70vh;
+  align-items: center;
+  justify-content: center;
+`;
+
+export const SpinnerStyle = styled.div`
   border: 5px solid var(--lightGrey);
   border-top: 5px solid var(--medGrey);
   border-radius: 50%;
