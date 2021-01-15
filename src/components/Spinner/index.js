@@ -1,3 +1,11 @@
-import { Spinner } from "./Spinner.styles";
+import React from "react";
 
-export default Spinner;
+import { Wrapper, SpinnerStyle } from "./Spinner.styles";
+
+export default function Spinner() {
+  return (
+    <Wrapper>
+      <SpinnerStyle />
+    </Wrapper>
+  );
+}

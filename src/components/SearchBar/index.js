@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 
-import searchIcon from "../../images/logo.svg";
+import searchIcon from "../../images/search.svg";
 import { Wrapper, Content } from "./SearchBar.styles";
 import PropTypes from "prop-types";
 
