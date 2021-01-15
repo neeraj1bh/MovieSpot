@@ -1,15 +1,20 @@
 import styled from "styled-components";
-import { IMAGE_BASE_URL, BACKDROP_SIZE } from "../../config";
 
 export const Wrapper = styled.div`
-  background: ${({ backdrop }) =>
-    backdrop ? `url(${IMAGE_BASE_URL}${BACKDROP_SIZE}${backdrop})` : "#000"};
+  background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.5) 50%,
+      rgba(0, 0, 0, 0.9) 100%
+    ),
+    url(${({ backdrop }) => backdrop}), var(--darkGrey);
   background-size: cover;
   background-position: center;
+  height: 600px;
+  position: relative;
   padding: 40px 20px;
-  animation: animateMovieInfo 1s;
+  animation: animateMovieInfo 2s;
 
-  @keyframes {
+  @keyframes animateMovieInfo {
     from {
       opacity: 0;
     }
@@ -23,20 +28,30 @@ export const Content = styled.div`
   display: flex;
   max-width: var(--maxWidth);
   margin: 0 auto;
-  background: rgba(0, 0, 0, 0.7);
-  border-radius: 20px;
-
-  @media screen and (max-width: 768px) {
-    display: block;
-    max-height: none;
-  }
+  padding: 20px;
 `;
 
 export const Text = styled.div`
-  width: 100%;
-  padding: 20px 40px;
+  z-index: 100;
+  max-width: 700px;
+  position: absolute;
+  bottom: 40px;
+  margin-right: 20px;
+  min-height: 100px;
+
   color: var(--white);
-  overflow: hidden;
+  h1 {
+    font-size: var(--fontSuperBig);
+    @media screen and (max-width: 720px) {
+      font-size: var(--fontBig);
+    }
+  }
+  p {
+    font-size: var(--fontMed);
+    @media screen and (max-width: 720px) {
+      font-size: var(--fontSmall);
+    }
+  }
 
   .rating-directors {
     display: flex;
