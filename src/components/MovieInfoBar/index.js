@@ -1,22 +1,33 @@
 import React from "react";
 import { calcTime, convertMoney } from "../../helpers";
-
-import { Wrapper, Content } from "./MovieInfoBar.styles";
+import { Link } from "react-router-dom";
+import { Wrapper, Content, Similar } from "./MovieInfoBar.styles";
 import PropTypes from "prop-types";
 
-const MovieInfoBar = ({ time, budget, revenue }) => (
+const MovieInfoBar = ({ time, budget, revenue, released, id, similar }) => (
   <Wrapper>
     <Content>
-      <div className="column">
-        <p>Running time: {calcTime(time)}</p>
-      </div>
-      <div className="column">
-        <p>Budget: {convertMoney(budget)}</p>
-      </div>
-      <div className="column">
-        <p>Revenue: {convertMoney(revenue)}</p>
-      </div>
+      <p>Running time: {calcTime(time)}</p>
+      <p>Budget: {convertMoney(budget)}</p>
+      <p>Revenue: {convertMoney(revenue)}</p>
+      <p>Release Date: {released}</p>
     </Content>
+    {/* {console.log(similar)} */}
+    <Similar>
+      {similar.results.length > 0 ? (
+        <Link
+          to={{
+            pathname: `${id}/similar/`,
+            state: { similarMovie: similar },
+          }}
+          style={{ textDecoration: "inherit" }}
+        >
+          <p className="similar">Similar Movies</p>
+        </Link>
+      ) : (
+        <p className="similar">No Similar Movies</p>
+      )}
+    </Similar>
   </Wrapper>
 );
 
