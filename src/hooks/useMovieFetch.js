@@ -3,7 +3,7 @@ import API from "../API";
 import { isPersistedState } from "../helpers";
 
 export const useMovieFetch = (movieId) => {
-  const [state, setState] = useState({});
+  const [state, setState] = useState();
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
 
@@ -17,18 +17,26 @@ export const useMovieFetch = (movieId) => {
         const directors = credits.crew.filter(
           (member) => member.job === "Director"
         );
+        const similarMovies = await API.fetchSimilar(movieId);
 
         setState({
           ...movie,
           actors: credits.cast,
           directors,
+          similarMovies: similarMovies,
         });
         setLoading(false);
-        
       } catch (e) {
         setError(true);
       }
     };
+
+    // if (sessionStorage.getItem(movieId) === "undefined") {
+    // //   setLoading(false);
+    // //   setError(true);
+    //   sessionStorage.removeItem(movieId);
+    //   return;
+    // }
     const sessionState = isPersistedState(movieId);
 
     if (sessionState) {
