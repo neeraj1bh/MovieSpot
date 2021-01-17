@@ -15,6 +15,10 @@ const apiSettings = {
     const creditsEndpoint = `${API_URL}movie/${movieId}/credits?api_key=${API_KEY}`;
     return await (await fetch(creditsEndpoint)).json();
   },
+  fetchSimilar: async (movieId) => {
+    const similar = `${API_URL}movie/${movieId}/similar?api_key=${API_KEY}&language=en-US&page=1`;
+    return await (await fetch(similar)).json();
+  },
 };
 
 export default apiSettings;
