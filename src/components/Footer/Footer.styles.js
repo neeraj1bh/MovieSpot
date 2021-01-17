@@ -29,6 +29,10 @@ export const Logo1 = styled.img`
   width: 70px;
   animation: spin 5s linear infinite;
 
+  :hover {
+    animation: spin 0.5s linear infinite;
+  }
+
   @keyframes spin {
     0% {
       transform: rotate(0deg);
