@@ -7,10 +7,14 @@ import PropTypes from "prop-types";
 const MovieInfoBar = ({ time, budget, revenue, released, id, similar }) => (
   <Wrapper>
     <Content>
-      <p>Running time: {calcTime(time)}</p>
-      <p>Budget: {convertMoney(budget)}</p>
-      <p>Revenue: {convertMoney(revenue)}</p>
-      <p>Release Date: {released}</p>
+      <p>Running time : {calcTime(time)}</p>
+      <p>Budget : {convertMoney(budget)}</p>
+      <p>Revenue : {convertMoney(revenue)}</p>
+      <p>
+        {released
+          ? `Release Date : ${released.substring(0, 4)}`
+          : "No Date Provided"}
+      </p>
     </Content>
     {/* {console.log(similar)} */}
     <Similar>

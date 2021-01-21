@@ -34,8 +34,8 @@ export const Content = styled.div`
     transition: all 0.5s ease;
 
     :hover {
-      background: white;
-      color: black;
+      background: var(--white);
+      color: var(--black);
       border-radius: 5px;
     }
   }
@@ -60,15 +60,15 @@ export const Similar = styled.div`
     font-weight: 600;
     font-size: var(--fontSmall);
     text-transform: uppercase;
-    background-color: white;
-    color: black;
+    background-color: var(--white);
+    color: var(--black);
     border-radius: 5px;
     transition: all 0.5s ease;
 
     :hover {
       padding: 0.5rem 3rem;
-      background: #90ff54;
-      color: black;
+      background: var(--green);
+      color: var(--black);
       border-radius: 5px;
     }
   }
