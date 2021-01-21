@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { POSTER_SIZE, IMAGE_BASE_URL } from "../config";
 import NoImage from "../images/noImage.png";
 import { useHomeFetch } from "../hooks/useHomeFetch";
@@ -10,6 +10,12 @@ import Button from "./Button";
 import Error from "./Error";
 import Footer from "./Footer";
 
+// const initialState = {
+//   results: localStorage.getItem("watchlist")
+//     ? JSON.parse(localStorage.getItem("watchlist"))
+//     : [],
+// };
+
 const Home = () => {
   const {
     state,
@@ -19,13 +25,6 @@ const Home = () => {
     setSearchTerm,
     setIsLoadingMore,
   } = useHomeFetch();
-  //   console.log(state);
-
-  useEffect(() => {
-    // for (let key in sessionStorage) {
-
-    // }
-  });
 
   if (error) return <Error />;
 
@@ -49,8 +48,11 @@ const Home = () => {
                 ? `${IMAGE_BASE_URL}${POSTER_SIZE}${movie.poster_path}`
                 : NoImage
             }
-            clickable={true}
+            movie={movie}
             movieId={movie.id}
+            // addMovieHandler={addMovieHandler}
+            // removeMovieHandler={removeMovieHandler}
+            // results={results}
           />
         ))}
       </MovieGrid>
