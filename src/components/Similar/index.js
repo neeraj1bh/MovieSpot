@@ -36,7 +36,7 @@ const Similar = (props) => {
                 ? `${IMAGE_BASE_URL}${POSTER_SIZE}${movie.poster_path}`
                 : NoImage
             }
-            clickable={true}
+            movie={movie}
             movieId={movie.id}
           />
         ))}
