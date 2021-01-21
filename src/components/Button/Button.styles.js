@@ -9,9 +9,9 @@ export const Wrapper = styled.button`
   /* font-size: var(--fontMed); */
   font-size: var(--fontSmall);
   padding: 0.5rem 2rem;
-  background: black;
+  background: var(--black);
   color: var(--white);
-  border-color: black;
+  border-color: var(--black);
   letter-spacing: 3px;
   cursor: pointer;
   font-weight: 900;
@@ -25,7 +25,7 @@ export const Wrapper = styled.button`
 
   :hover {
     background: white;
-    color: black;
+    color: var(--black);
     /* padding: 0.5rem 3rem; */
     /* background: #90ff54; */
   }
