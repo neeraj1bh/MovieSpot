@@ -27,7 +27,9 @@ npm install && npm run dev
 
 ## External Libraries
 
+- [Firebase](https://github.com/firebase/firebase-js-sdk)
 - [React Router Dom](https://github.com/ReactTraining/react-router/tree/master/packages/react-router-dom)
 - [Styled Components](https://github.com/styled-components/styled-components)
 - [Prop-Types](https://github.com/facebook/prop-types)
+
 
