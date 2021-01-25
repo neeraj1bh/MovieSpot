@@ -12,7 +12,7 @@
 ## Installation
 
 ```
-git clone https://github.com/neeraj1bh/MoviePost.git
+git clone https://github.com/neeraj1bh/MovieSpot.git
 cd [foldername]
 npm install && npm run dev
 
