@@ -6,7 +6,7 @@
 
 [Click here to see it live](https://moviespot.netlify.app/)
 
-[![project thumbnail](https://user-images.githubusercontent.com/55753068/105644810-99f91580-5ebd-11eb-9e4f-7ba9abd4d7f8.mp4)
+[![project thumbnail](./public/Screen1.webp)](https://user-images.githubusercontent.com/55753068/105644810-99f91580-5ebd-11eb-9e4f-7ba9abd4d7f8.mp4 "Click to Watch!")
 
 
 ## Installation
