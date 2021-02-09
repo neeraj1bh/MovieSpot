@@ -1,12 +1,13 @@
 import React, { useState, useEffect, useRef } from "react";
 
 import searchIcon from "../../images/search.svg";
-import { Wrapper, Content } from "./SearchBar.styles";
+import { Wrapper, Content, Button } from "./SearchBar.styles";
 import PropTypes from "prop-types";
+import { useAuth } from "../../contexts/GlobalContext";
 
 const SearchBar = ({ setSearchTerm }) => {
   const [state, setstate] = useState("");
-
+  const { toggle, setToggle } = useAuth();
   const initial = useRef(true);
   useEffect(() => {
     if (initial.current) {
@@ -30,6 +31,11 @@ const SearchBar = ({ setSearchTerm }) => {
           value={state}
         />
       </Content>
+      <Button>
+        <button onClick={() => setToggle(!toggle)}>
+          {toggle ? "True" : "False"}
+        </button>
+      </Button>
     </Wrapper>
   );
 };
