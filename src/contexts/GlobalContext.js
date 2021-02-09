@@ -10,9 +10,10 @@ export function useAuth() {
 export function AuthProvider({ children }) {
   const [currentUser, setCurrentUser] = useState();
   const [loading, setLoading] = useState(true);
-//   const [email, setEmail] = useState("");
-//   const [storedEmail, setStoredEmail] = useState();
-//   let emailSet = email;
+  const [toggle, setToggle] = useState(false);
+  //   const [email, setEmail] = useState("");
+  //   const [storedEmail, setStoredEmail] = useState();
+  //   let emailSet = email;
 
   const initialState = {
     watchlist: localStorage.getItem("watchlist")
@@ -71,12 +72,12 @@ export function AuthProvider({ children }) {
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
       setCurrentUser(user);
-    //   setEmail(user.email);
+      //   setEmail(user.email);
       // localStorage.setItem("email", JSON.stringify(user.email));
 
-    //   let emailStorage =
-    //     JSON.parse(localStorage.getItem("email")) === user.email;
-    //   setStoredEmail(emailStorage);
+      //   let emailStorage =
+      //     JSON.parse(localStorage.getItem("email")) === user.email;
+      //   setStoredEmail(emailStorage);
       //   console.log("Stored" + JSON.parse(localStorage.getItem("email")));
       //   console.log("DB" + user.email);
       //   console.log(storedEmail);
@@ -94,6 +95,8 @@ export function AuthProvider({ children }) {
     addMovieHandler,
     removeMovieHandler,
     watchlist: state.watchlist,
+    toggle,
+    setToggle,
   };
 
   return (
