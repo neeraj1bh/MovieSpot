@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import API from "../API";
 import { isPersistedState } from "../helpers";
 import { useAuth } from "../contexts/GlobalContext";
@@ -18,53 +18,56 @@ export const useHomeFetch = () => {
   const [isLoadingMore, setIsLoadingMore] = useState(false);
   const { toggle } = useAuth();
 
-  const fetchMovies = async (page, searchTerm = "") => {
-    try {
-      setError(false);
-      setLoading(true);
-      // HomePage result
-      const allResult = await API.fetchMovies(searchTerm, page);
-    //   console.log(allResult);
-      // SearchPage no duplicates result
-      const ndResults = allResult.results.filter(
-        (movie) => movie.vote_count > "10"
-      );
-      const movies = { ...allResult, results: ndResults };
-      // Exact result
-      const eResults = allResult.results.filter(
-        (movie) => movie.title.toLowerCase() === searchTerm.toLowerCase()
-      );
-      const toggledMovies = { ...allResult, results: eResults };
-    //   console.log(movies);
-    //   console.log(searchTerm);
-      searchTerm === null
-        ? setState((prev) => ({
-            ...allResult,
-            results:
-              page > 1
-                ? [...prev.results, ...allResult.results]
-                : [...allResult.results],
-          }))
-        : toggle
-        ? setState((prev) => ({
-            ...toggledMovies,
-            results:
-              page > 1
-                ? [...prev.results, ...toggledMovies.results]
-                : [...toggledMovies.results],
-          }))
-        : setState((prev) => ({
-            ...movies,
-            results:
-              page > 1
-                ? [...prev.results, ...movies.results]
-                : [...movies.results],
-          }));
-    } catch (e) {
-      setError(true);
-    }
-    setLoading(false);
-  };
+  const fetchMovies = useCallback(
+    async (page, searchTerm = "") => {
+      try {
+        setError(false);
+        setLoading(true);
+        // HomePage result
+        const allResult = await API.fetchMovies(searchTerm, page);
+        //   console.log(allResult);
+        // SearchPage no duplicates result
+        const ndResults = allResult.results.filter(
+          (movie) => movie.vote_count > "10"
+        );
+        const movies = { ...allResult, results: ndResults };
+        // Exact result
+        const eResults = allResult.results.filter(
+          (movie) => movie.title.toLowerCase() === searchTerm.toLowerCase()
+        );
+        const toggledMovies = { ...allResult, results: eResults };
+        //   console.log(movies);
+        //   console.log(searchTerm);
+        searchTerm === null
+          ? setState((prev) => ({
+              ...allResult,
+              results:
+                page > 1
+                  ? [...prev.results, ...allResult.results]
+                  : [...allResult.results],
+            }))
+          : toggle
+          ? setState((prev) => ({
+              ...toggledMovies,
+              results:
+                page > 1
+                  ? [...prev.results, ...toggledMovies.results]
+                  : [...toggledMovies.results],
+            }))
+          : setState((prev) => ({
+              ...movies,
+              results:
+                page > 1
+                  ? [...prev.results, ...movies.results]
+                  : [...movies.results],
+            }));
+      } catch (e) {
+        setError(true);
+      }
+      setLoading(false);
+    },
+    [toggle]
+  );
 
   //Search and Initial
 
@@ -79,7 +82,7 @@ export const useHomeFetch = () => {
     }
     setState(initialState);
     fetchMovies(1, searchTerm);
-  }, [searchTerm]);
+  }, [fetchMovies, searchTerm]);
 
   // Load More
 
@@ -88,7 +91,7 @@ export const useHomeFetch = () => {
     //if (isLoadingMore) return; Auto calls the page increments no need to click the button
     fetchMovies(state.page + 1, searchTerm);
     setIsLoadingMore(false);
-  }, [isLoadingMore, state.page, searchTerm]);
+  }, [isLoadingMore, state.page, searchTerm, fetchMovies]);
 
   //SetItem to Session Storage
 
