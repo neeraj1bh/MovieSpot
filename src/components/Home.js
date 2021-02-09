@@ -60,7 +60,7 @@ const Home = () => {
       {state.page < state.total_pages && !loading && (
         <Button text="Load More" callback={() => setIsLoadingMore(true)} />
       )}
-      {!loading && state.results.length <= 0 && <Error />}
+      {!loading && state.total_pages <= 0 && <Error />}
       {!loading && state.results.length > 0 && <Footer />}
     </>
   );

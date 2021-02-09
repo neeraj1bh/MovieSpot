@@ -24,7 +24,7 @@ export const useHomeFetch = () => {
       setLoading(true);
       // HomePage result
       const allResult = await API.fetchMovies(searchTerm, page);
-      console.log(allResult);
+    //   console.log(allResult);
       // SearchPage no duplicates result
       const ndResults = allResult.results.filter(
         (movie) => movie.vote_count > "10"
@@ -35,8 +35,8 @@ export const useHomeFetch = () => {
         (movie) => movie.title.toLowerCase() === searchTerm.toLowerCase()
       );
       const toggledMovies = { ...allResult, results: eResults };
-      console.log(movies);
-      console.log(searchTerm);
+    //   console.log(movies);
+    //   console.log(searchTerm);
       searchTerm === null
         ? setState((prev) => ({
             ...allResult,
