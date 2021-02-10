@@ -29,6 +29,7 @@ const SearchBar = ({ setSearchTerm }) => {
           placeholder="Enter Movie to Search"
           onChange={(e) => setstate(e.currentTarget.value)}
           value={state}
+          className="searchInput"
         />
       </Content>
       <Button>

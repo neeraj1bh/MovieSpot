@@ -38,7 +38,7 @@ export const Content = styled.div`
     }
   }
 
-  input {
+  .searchInput {
     font-size: var(--fontMed);
     margin: 8px 0;
     left: 0;
