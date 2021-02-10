@@ -7,7 +7,7 @@ const MovieInfo = ({ movie }) => {
   let backdrop = movie.backdrop_path
     ? `${IMAGE_BASE_URL}${BACKDROP_SIZE}${movie.backdrop_path}`
     : "#000";
-  //   console.log(backdrop);
+  
 
   useEffect(() => {
     window.scrollTo(0, 0);

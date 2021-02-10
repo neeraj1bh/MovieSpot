@@ -50,9 +50,6 @@ const Home = () => {
             }
             movie={movie}
             movieId={movie.id}
-            // addMovieHandler={addMovieHandler}
-            // removeMovieHandler={removeMovieHandler}
-            // results={results}
           />
         ))}
       </MovieGrid>
