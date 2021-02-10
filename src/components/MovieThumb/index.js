@@ -37,17 +37,7 @@ const MovieThumb = ({ image, movie, movieId }) => {
       <Controls>
         {currentUser ? (
           <>
-            {location.pathname === "/" ? (
-              <button
-                className="Buttons"
-                onClick={(e) => {
-                  setModal(true);
-                }}
-                disabled={btnDisabled}
-              >
-                Add to Watchlist
-              </button>
-            ) : (
+            {location.pathname === "/watchlist" ? (
               <button
                 className="Buttons"
                 onClick={(e) => {
@@ -57,6 +47,16 @@ const MovieThumb = ({ image, movie, movieId }) => {
                 // disabled={storedMovie}
               >
                 Remove
+              </button>
+            ) : (
+              <button
+                className="Buttons"
+                onClick={(e) => {
+                  setModal(true);
+                }}
+                disabled={btnDisabled}
+              >
+                Add to Watchlist
               </button>
             )}
           </>
