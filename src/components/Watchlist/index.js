@@ -6,6 +6,7 @@ import MovieThumb from "../MovieThumb";
 import AddToWatch from "../AddToWatch";
 import Footer from "../Footer";
 import { useAuth } from "../../contexts/GlobalContext";
+import { WatchHeader } from "./Watchlist.styled.js";
 
 const Watchlist = (props) => {
   //   console.log(similarMovie);
@@ -13,31 +14,38 @@ const Watchlist = (props) => {
   //   const singleSimilarMovie = [similarMovie];
   //   console.log(singleSimilarMovie);
 
-  const { watchlist } = useAuth();
+  const { watchlist, moviesArray } = useAuth();
   useEffect(() => {
     window.scrollTo(0, 0);
   });
 
   return (
     <>
-      <MovieGrid header={watchlist.length > 0 ? "WatchList" : null}>
-        {watchlist.map((movie) => (
+      {moviesArray.length > 0 && <WatchHeader>WatchList</WatchHeader>}
+
+      {moviesArray.length > 0 &&
+        watchlist.map((movie) => (
           // console.log(movie)
-
-          <MovieThumb
+          <MovieGrid
+            header={movie.movies.length > 0 ? movie.title : null}
             key={movie.id}
-            image={
-              movie.poster_path
-                ? `${IMAGE_BASE_URL}${POSTER_SIZE}${movie.poster_path}`
-                : NoImage
-            }
-            movieId={movie.id}
-          />
+          >
+            {movie.movies.map((movie) => (
+              <MovieThumb
+                key={movie.id}
+                image={
+                  movie.poster_path
+                    ? `${IMAGE_BASE_URL}${POSTER_SIZE}${movie.poster_path}`
+                    : NoImage
+                }
+                movieId={movie.id}
+              />
+            ))}
+          </MovieGrid>
         ))}
-      </MovieGrid>
 
-      {watchlist.length <= 0 && <AddToWatch />}
-      {watchlist.length > 5 && <Footer />}
+      {moviesArray.length <= 0 && <AddToWatch />}
+      {<Footer />}
     </>
   );
 };
