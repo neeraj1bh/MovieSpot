@@ -8,8 +8,13 @@ import { v4 as uuid } from "uuid";
 const Modal = ({ closeModal, movie }) => {
   const [value, setValue] = useState("");
   const { addMovieHandler, addWatchlist, watchlist, moviesArray } = useAuth();
+
   const addMoreList = (value) => {
     if (value === "") {
+      return;
+    }
+
+    if (watchlist.find((movies) => movies.title === value)) {
       return;
     }
     const newListId = uuid();
@@ -60,7 +65,7 @@ const Modal = ({ closeModal, movie }) => {
           />
 
           <button type="submit" className="submitBtn">
-            +
+            Add
           </button>
         </form>
 
