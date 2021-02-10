@@ -15,8 +15,19 @@ export const Wrapper = styled.div`
   background-color: rgba(0, 0, 0, 0.75);
 `;
 export const Content = styled.div`
-  margin: 5% auto;
-  background-color: white;
+  margin: 7% auto;
+  background: #b3ffab; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    45deg,
+    #b3ffab,
+    #12fff7
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    45deg,
+    #b3ffab,
+    #12fff7
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
   border-radius: 1rem;
   width: 70vw;
   padding: 4rem;
@@ -39,20 +50,20 @@ export const Content = styled.div`
     justify-content: center;
   }
   .formInput {
-    font-size: var(--fontMed);
+    font-size: var(--fontSmall);
     padding: 15px;
     border: 1px solid var(--white);
-    width: 90%;
+    width: 80%;
     margin: 10px;
     text-align: center;
-    background: transparent;
+    background: var(--darkGrey);
     /* height: 40px; */
     border-radius: 10px;
     color: var(--white);
     outline: none;
     /* margin: 0; */
     @media screen and (max-width: 768px) {
-      font-size: var(--fontSmall);
+      font-size: var(--fontVSmall);
     }
 
     @media screen and (max-width: 400px) {
@@ -61,28 +72,49 @@ export const Content = styled.div`
   }
 
   .submitBtn {
-    padding: 15px 20px;
-    font-size: var(--fontMed);
-    font-weight: 900;
-    text-align: center;
-    border: none;
-    border-radius: 10px;
+    font-size: var(--fontSmall);
+    font-weight: 600;
+    padding: 0.7rem 2rem;
+    background: var(--white);
+    color: var(--black);
+    border-color: var(--white);
+    letter-spacing: 3px;
     cursor: pointer;
+    text-transform: uppercase;
+    outline: none;
+    transition: all 0.7s ease;
+    border-radius: 5px;
+    border: none;
+
+    :hover {
+      background: var(--black);
+      color: var(--white);
+      border-color: var(--white);
+    }
 
     @media screen and (max-width: 768px) {
-      font-size: var(--fontSmall);
-      padding: 10px 15px;
+      font-size: var(--fontVSmall);
+      padding: 0.5rem 1rem;
     }
   }
   .cancelBtn {
     padding: 5px 15px;
     font-size: var(--fontMed);
     font-weight: 900;
-    text-align: center;
-    cursor: pointer;
 
-    border: 2px solid var(--darkGrey);
-    border-radius: 10px;
+    cursor: pointer;
+    color: var(--black);
+
+    border-radius: 5rem;
+    border: none;
+
+    transition: all 0.5s ease;
+
+    :hover {
+      background: var(--black);
+      color: var(--white);
+      border-color: var(--white);
+    }
   }
 `;
 
