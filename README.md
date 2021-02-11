@@ -20,10 +20,14 @@ npm install && npm run dev
 
 ## Features
 
-- User can view Trending movies and Search for movies.
+- User can view Trending movies, Search for movies and view Similar movies.
+- Implemented dynamic watchlists which can be created and updated by the user.
+- Filtered out the conflicting data being sent by the API and implemented an advanced search feature.
+- Login/Signup for an account and authenticated users can create multiple watchlists.
 - View detailed summary for every movie.
 - View entire cast for every movie.
 - Also user can view some additional info like Budget, Revenue and Ratings.
+
 
 ## External Libraries
 
